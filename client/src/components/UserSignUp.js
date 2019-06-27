@@ -2,11 +2,9 @@ import React, { Component } from 'react'
 import { NavLink, Redirect } from "react-router-dom";
 import { AuthConsumer } from "./Authenticate";
 import ValidationErrors from "./ValidationErrors";
-
+//Rendering the page for user sign up
 class UserSignUp extends Component {
     render() {
-
-// sign up with validation errors if anything is missing and if passwords do not muatch
             return (
                 <AuthConsumer>
                     {({isAuth, handleChange, signUp, errors}) =>

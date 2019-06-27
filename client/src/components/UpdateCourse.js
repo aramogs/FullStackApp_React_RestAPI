@@ -3,8 +3,7 @@ import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 import ValidationErrors from "./ValidationErrors";
 
-
-// Gets the course when rendered, and updates when button is clicked. Redirects to forbidden if user not signed in.
+//Declaring state to have variables ready
 class UpdateCourse extends Component {
     _isMounted = false;
     state = {
@@ -26,7 +25,7 @@ class UpdateCourse extends Component {
         this._isMounted = false;
     }
 
-
+//Getting the information of the course by its id
     getCourse = () => {
         const id = this.props.match.params.id;
         const _id = parseInt(localStorage.getItem('_id'));
@@ -57,7 +56,7 @@ class UpdateCourse extends Component {
                 }
             });
     };
-
+//Updating the course using the api by its id
     updateCourse = e => {
         e.preventDefault();
         const { id } = this.props.match.params;
@@ -93,8 +92,6 @@ class UpdateCourse extends Component {
                 }
             });
     };
-
-    // Updates as user types in inputs.
     handleChange = e => {
         if(e.currentTarget.value === ""){
             this.setState({
@@ -106,8 +103,6 @@ class UpdateCourse extends Component {
             });
         }
     };
-
-    // Shows validation errors if title and description are not entered.
     render() {
         const {
             errors,

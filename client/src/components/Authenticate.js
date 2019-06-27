@@ -3,7 +3,9 @@ import axios from 'axios';
 
 const Authenticate = React.createContext();
 
+
 class AuthProvider extends Component {
+//Declaring state to have all the variables ready
     state = {
         isAuth: false,
         _id: null,
@@ -34,14 +36,12 @@ class AuthProvider extends Component {
 
 
     updateStorage = () => {
-        // this is turning the state into arrays and then setting the local storage
         return Object.keys(this.state).map(key => {
             return localStorage.setItem(key, this.state[key]);
         });
     };
 
     updateUser = () => {
-        // this is getting the local storage to update the state
         return Object.keys(this.state).map( key => {
             return this.setState({
                 [key]: localStorage.getItem(key)
@@ -49,12 +49,10 @@ class AuthProvider extends Component {
         })
     };
 
-    // this is to sign in
     signIn = e => {
         if (e) e.preventDefault();
         this.errorReset()
         const { emailAddress, password } = this.state;
-// this is getting the users from  here
         axios.get('http://localhost:5000/api/users', {
             auth: {
                 username : emailAddress,
@@ -70,8 +68,6 @@ class AuthProvider extends Component {
             });
             this.updateStorage();
         }).catch( e => {
-
-            //alert(e.response.data.message);
             let msg = [e.response.data.message];
             this.setState({
                 errors: msg
@@ -80,7 +76,6 @@ class AuthProvider extends Component {
     };
 
     signUp = e => {
-        // this is to signup
         e.preventDefault();
         this.errorReset()
         const {
@@ -145,7 +140,6 @@ class AuthProvider extends Component {
         }
     };
 
-    // Updates as user types in inputs.
     handleChange = e => {
         this.errorReset()
         if(e.currentTarget.value === ''){

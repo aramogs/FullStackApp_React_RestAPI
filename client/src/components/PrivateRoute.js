@@ -4,7 +4,6 @@ import { Route, Redirect } from 'react-router-dom';
 import { AuthConsumer } from './Authenticate';
 
 
-// Redirects to sign in and back to the last page visited after signing in.
 const PrivateRoute = ({ component: Component, ...rest }) => {
     return (
         <AuthConsumer>

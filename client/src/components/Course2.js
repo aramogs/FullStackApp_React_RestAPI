@@ -4,7 +4,7 @@ import { AuthConsumer } from "./Authenticate";
 import { NavLink } from "react-router-dom";
 import ReactMarkDown from "react-markdown"
 
-
+//Loading the details of an specific course depending on its id
 class CourseDetail extends Component {
     state = {};
     componentDidMount() {
@@ -21,8 +21,8 @@ class CourseDetail extends Component {
                 }
             ).then(this.getUser)
     }
+    //Getting the information of the current user using a for loop from all the users
     getUser = () => {
-        // gets users
         axios.get('http://localhost:5000/api/users/allusers')
             .then((res) => {
                 for (let i = 0; i < res.data.length; i++) {
@@ -35,9 +35,8 @@ class CourseDetail extends Component {
                 }
             })
     };
-
+//Used to delete course according to its id
     deleteCourse = e => {
-        // deletes course
         e.preventDefault();
         const { emailAddress, password } = localStorage;
         const { _id } = localStorage;
@@ -67,7 +66,6 @@ class CourseDetail extends Component {
 
     render() {
         return (
-            // this displays the buttons + course desc and so on.
             <div>
                 <AuthConsumer>
                     {({ isAuth, ownsCourse }) => (

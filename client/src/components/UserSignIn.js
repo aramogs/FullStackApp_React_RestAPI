@@ -4,9 +4,8 @@ import ValidationErrors from "./ValidationErrors";
 import  { AuthConsumer } from './Authenticate';
 
 
-
+//Rendering the page for user signin
 class UserSignIn extends Component {
-    // this makes sure that the user cant sign in while already signed in!
     render() {
        
         const { from } = this.props.location.state || { from: { pathname: '/' } };

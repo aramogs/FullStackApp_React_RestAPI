@@ -1,7 +1,6 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
 
-// 500 errors
 const UnhandledError = () => {
     return (
         <div className="bounds">

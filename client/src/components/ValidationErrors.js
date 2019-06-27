@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-
-// Displays if user does not enter a title or description in create or updateCourse or on signup.
+//Rendering the diferent errors
 class ValidationErrors extends Component {
     render() {
 

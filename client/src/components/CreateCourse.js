@@ -5,6 +5,7 @@ import ValidationErrors from './ValidationErrors';
 
 
 class CreateCourse extends Component {
+//Creating the state to have the variables ready
     state = {
         title: null,
         description: null,
@@ -12,7 +13,7 @@ class CreateCourse extends Component {
         materialsNeeded: 'none',
         errors: null
     };
-
+//Insert course in database
     createCourse = e => {
         e.preventDefault();
         const  id  = localStorage.getItem('_id');
@@ -60,14 +61,11 @@ class CreateCourse extends Component {
             });
     };
 
-    // updates as there are changes!
     handleChange = e => {
         this.setState({
             [e.currentTarget.name]: e.currentTarget.value
         });
     };
-
-    // Displays erros upon validation for title and description
     render() {
         const { errors } = this.state;
         return (

@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 import { AuthConsumer } from './Authenticate';
 
 const Header = () => {
-    // this header option displays user as we go!
     return (
         <AuthConsumer>
             {({ isAuth, name, signOut }) => (

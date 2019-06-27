@@ -9,7 +9,7 @@ class Courses extends Component {
     state = {
         courses: {}
     };
-
+//Getting all the courses using the api
     componentDidMount() {
         axios.get(`http://localhost:5000/api/courses`)
             .then(response => {
@@ -23,9 +23,7 @@ class Courses extends Component {
             });
     }
     render() {
-        // this displays the list of courses with the add course button!
         const { courses } = this.state;
-
         return (
             <div>
                 <div>
