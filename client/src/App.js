@@ -13,7 +13,7 @@ import CreateCourse from "./components/CreateCourse";
 import UpdateCourse from "./components/UpdateCourse";
 import PrivateRoute from "./components/PrivateRoute"
 import Forbidden from "./components/Access";
-import UnhandledError from "./components/Error"
+import UnhandledError from "./components/UnhandledError"
 import NotFound from './components/404'
 
 function App() {
@@ -24,11 +24,11 @@ function App() {
         <Header />
         <Switch>
           <Route exact path="/" component={Courses} />
-          <Route exact path="/courses/:id" component={CourseDetail} />
           <PrivateRoute exact path="/courses/create" component={CreateCourse} />
-          <PrivateRoute exact path="/courses/:id/update" component={UpdateCourse} />
+          <Route exact path="/courses/:id" component={CourseDetail} />
           <Route exact path="/signin" component={UserSignIn} />
           <Route exact path="/signup" component={UserSignUp} />
+          <PrivateRoute exact path="/courses/:id/update" component={UpdateCourse} />
           <Route exact path="/signout" component={UserSignOut} />
           <Route exact path="/forbidden" component={Forbidden} />
           <Route exact path="/notfound" component={NotFound} />
