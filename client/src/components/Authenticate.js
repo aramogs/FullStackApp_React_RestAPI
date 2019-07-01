@@ -103,17 +103,21 @@ class AuthProvider extends Component {
                 this.signIn();
             })
             .catch(err => {
-                if (err.response.status === 400) {
-                    const errors = err.response.data;
-                    const messages = Object.values(errors).map(err => {
-                        return err.message;
-                    });
+                if (err.response.status === 400) {   
+                    const errors = [err.response.data.Error]
                     this.setState({
-                        errors: messages
+                        errors: errors
                     });
-                } else {
+                }else if (err.response.status === 500) {   
+                    const errors = [err.response.data.Error]
+                    this.setState({
+                        errors: errors
+                    });
+                }
+                 else {
                     console.log('Error signing up', err);
                 }
+                
             });
     };
 

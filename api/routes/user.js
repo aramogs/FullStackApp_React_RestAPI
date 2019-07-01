@@ -52,7 +52,7 @@ router.post("/", (req, res) => {
               // });
           })
           .catch(err => {
-            res.status(500).json({ Error: err });
+            res.status(500).json({ Error: "Please use a valid email address", err });
           });
       } else {
         res.status(400).json({ Message: "User previously registered" });
@@ -62,7 +62,10 @@ router.post("/", (req, res) => {
       err = "Missing information";
       res
         .status(400)
+      
+        
         .json({ Error: "Please fill the required Information",err});
+        console.log("test");
     });
 });
 
