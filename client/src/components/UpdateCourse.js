@@ -163,7 +163,8 @@ class UpdateCourse extends Component {
                                                             type="text"
                                                             className="course--time--input"
                                                             placeholder="Hours"
-                                                            defaultValue={estimatedTime || ''}
+                                                            onChange={this.handleChange}
+                                                         value={estimatedTime || ''}
                                                        
                                                         />
                                                     </div>
@@ -176,8 +177,8 @@ class UpdateCourse extends Component {
                                 name="materialsNeeded"
                                 className=""
                                 placeholder="List materials..."
-                               
-                                defaultValue={materialsNeeded || ''}
+                                onChange={this.handleChange}
+                                value={materialsNeeded || ''}
                             />
                                                     </div>
                                                 </li>
