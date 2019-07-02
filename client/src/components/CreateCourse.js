@@ -20,7 +20,6 @@ class CreateCourse extends Component {
         const { emailAddress, password } = localStorage;
         const { title, description, estimatedTime, materialsNeeded } = this.state;
         const { history } = this.props;
-        console.log(this.state)
 
         axios
             .post(
@@ -44,14 +43,11 @@ class CreateCourse extends Component {
 
             })
             .catch(err => {
-                console.log(err.response)
                 if (err.response.status === 400) {
-                    const errors = err.response.data.Error;
-                    const messages = Object.values(errors).map(err => {
-                        return err.message;
-                    });
+                    const errors = [err.response.data.message]               
+                    
                     this.setState({
-                        errors: messages
+                        errors:errors
                     });
                 } else if (err.response.status === 500) {
                     history.push('/error');
